@@ -152,11 +152,11 @@ function App() {
               </tr>
               <tr>
                 <td>Total Interest: </td>
-                <td>{ansAmount}</td>
+                <td>{ansInterest}</td>
               </tr>
               <tr>
                 <td>Total Payment: </td>
-                <td>{ansInterest}</td>
+                <td>{ansAmount}</td>
               </tr>
             </tbody>
           </table>
