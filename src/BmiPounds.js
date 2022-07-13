@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Show from "./Show"
+import Show from "./Show";
 const BmiPounds = () => {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
@@ -15,26 +15,28 @@ const BmiPounds = () => {
     setHeight(event.target.value);
   };
 
-  const calculate = () =>{
+  const calculate = () => {
     if (weight != "" && height != "") {
-      if (/^\d+$/.test(weight) && /^\d+$/.test(height)) {
-          
-        const newHeight = height*height;
-    let val = (weight / newHeight) * 703
-    val = val.toFixed(2);
-    setCalc(val)
+      if (
+        /^[+-]?([0-9]*[.])?[0-9]+$/.test(weight) &&
+        /^[+-]?([0-9]*[.])?[0-9]+$/.test(height)
+      ) {
+        const newHeight = height * height;
+        let val = (weight / newHeight) * 703;
+        val = val.toFixed(2);
+        setCalc(val);
         setError("");
       } else {
         setError("fields should be number!");
-        setShow("")
-        setCalc("")
+        setShow("");
+        setCalc("");
       }
     } else {
       setError("Please fill all the fields!");
-      setShow("")
-      setCalc("")
+      setShow("");
+      setCalc("");
     }
-  }
+  };
   return (
     <div className="bmi">
       <h2>BMI Calculator</h2>
@@ -69,5 +71,3 @@ const BmiPounds = () => {
 };
 
 export default BmiPounds;
-
-

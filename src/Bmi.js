@@ -17,8 +17,10 @@ const Bmi = () => {
 
   const calculate = () => {
     if (weight != "" && height != "") {
-      if (/^\d+$/.test(weight) && /^\d+$/.test(height)) {
-          
+      if (
+        /^[+-]?([0-9]*[.])?[0-9]+$/.test(weight) &&
+        /^[+-]?([0-9]*[.])?[0-9]+$/.test(height)
+      ) {
         const newHeight = height * height;
         var val = weight / newHeight;
         val = val.toFixed(2);
@@ -26,13 +28,13 @@ const Bmi = () => {
         setError("");
       } else {
         setError("fields should be number!");
-        setShow("")
-        setCalc("")
+        setShow("");
+        setCalc("");
       }
     } else {
       setError("Please fill all the fields!");
-      setShow("")
-      setCalc("")
+      setShow("");
+      setCalc("");
     }
   };
   return (
